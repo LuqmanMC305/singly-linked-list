@@ -12,9 +12,11 @@ class LinkedList
          T value;
          Node* next;
       };
-      Node* head;
+      
 
     public:
+      Node* head;
+
       LinkedList() : head(nullptr) {}
       ~LinkedList()
       {
@@ -33,6 +35,7 @@ class LinkedList
       void deleteIndex(int targetIndex);
       void addAtIndex(int index, T newVal);
       void displayFast();
+      void reverseList();
 };
 
 template <typename T>
@@ -202,6 +205,37 @@ void LinkedList<T>::displayFast()
     }
     
     std::cout << std::endl;
+}
+
+template <typename T>
+
+void LinkedList<T>::reverseList()
+{
+    if(head == nullptr || head->next == nullptr)
+    {
+       return;
+    }
+    else
+    {
+        Node* prev = nullptr;
+        Node* current = head;
+        Node* next = nullptr;
+
+        while(current != nullptr)
+        {
+            next = current->next; //Assign next pointer variable
+            current->next = prev; //Reverse the current's next pointer
+            
+            //Update the current & next pointers
+            prev = current; 
+            current = next;
+        }
+
+        head = prev;
+
+    }
+
+    
 }
 
 

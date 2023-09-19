@@ -20,9 +20,15 @@ int main()
    //l1.deleteIndex(4);
 
    l1.addAtIndex(3, 10);
-
+   
+   cout << "Linked List with slow pointer:" << endl;
    l1.display();
+   cout << "Linked List with fast pointer:" << endl;
    l1.displayFast();
+   
+   l1.reverseList();
+   cout << "Linked List after being reversed:" << endl;
+   l1.display();
    
    return 0;
 }
